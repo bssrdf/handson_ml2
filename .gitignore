@@ -4,5 +4,5 @@ Created on Thu Dec 31 21:01:24 2020
 
 @author: merli
 """
-
+*.pyc
 datasets
