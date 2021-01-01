@@ -64,6 +64,11 @@ if __name__ == "__main__":
     forest_reg = RandomForestRegressor(random_state=42)
     # train across 5 folds, that's a total of (12+6)*5=90 rounds of training 
     grid_search = GridSearchCV(forest_reg, param_grid, cv=5,
+    # All scorer objects follow the convention that higher return values 
+    # are better than lower return values. Thus metrics which measure the 
+    # distance between the model and the data, like 
+    # metrics.mean_squared_error, are available as neg_mean_squared_error 
+    # which return the negated value of the metric.
                            scoring='neg_mean_squared_error',
                            return_train_score=True)
     grid_search.fit(housing_prepared, housing_labels)    
